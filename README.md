@@ -10,8 +10,12 @@ To download the pacakge:
   library("MicroMetaGraph")
 
 # Overview: 
-
+ls("package:MicroMetaGraph")
+data(package="MicroMetaGraph")
+browseVignettes("MicroMetaGraph")
 # Contributions
 
 # References 
+# Acknowledgements
 
+This package was developed as part of an assessment for 2020 BCB410H: Applied Bioinforamtics, University of Toronto, Toronto, CANADA
