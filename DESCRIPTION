@@ -4,7 +4,7 @@ Title: MicroMetaGraph: Construction Interaction Networks using Metatranscriptomi
 Version: 0.1.0
 Authors@R: person("Emily", "So", email = "emily.so@mail.utoronto.ca", role = c("aut", "cre"))
 Maintainer: Emily So <emily.so@mail.utoronto.ca>
-Description:An R package that, when given an input set of genes or protein classifiers, uses data from multiple metatrnascriptomic databases (such as orthology, homology and gene ontology) to construct a protein interaction network.
+Description: An R package that, when given an input set of genes or protein classifiers, uses data from multiple metatrnascriptomic databases (such as orthology, homology and gene ontology) to construct a protein interaction network.
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.0.2)
@@ -14,13 +14,13 @@ Imports:
     utils,
     dbplyr,
     igraph,
+    roxygen2,
     tidyverse
 License: MIT + file LICENSE
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.1.9000
 Suggests: 
     testthat,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-
