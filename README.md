@@ -15,6 +15,11 @@ data(package="MicroMetaGraph")
 browseVignettes("MicroMetaGraph")
 # Contributions
 
+The author of the package is EmilySo. The
+functions *GetOrthology*,*FucntionalAnnotation* and *CogLinker* make use of the `sqldf` function 
+to query from R dataframes like an SQL datbaase. The `igraph` R package is used
+to generate the plots for the ProteinInteractionNetworks. the `tidyverse` package was used to create the datasets.
+
 # References 
 
 
