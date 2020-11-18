@@ -8,27 +8,27 @@
 #' @export
 #' @examples
 #' \dontrun {
-#' get_orthology([Gene1,Gene2,Gene3])
+#' GetOrthology([Gene1,Gene2,Gene3])
 #' }
 #' {Gene1: Group X, Gene2: Group Y, Gene3: Group Z}
 
-get_orthology <- function(classifiers){
-  cog_df <- data.frame(GenBankID=character(),OG = character())
+GetOrthology <- function(classifiers){
+  CogDf <- data.frame(GenBankID=character(),OG = character())
   for (i in classifiers) {
-    firstchar <- paste("SELECT COGID FROM orthologs_info where GenBankID=",i,sep = "'")
+    firstchar <- paste("SELECT COGID FROM OrthologsInfo where GenBankID=",i,sep = "'")
     secondchar <-paste(firstchar,"",sep = "'")
     query <- sqldf(secondchar,COG_orthos)
     if (length(query$COGID) == 0) {
     print(paste("Protein with GenBank ID",i,"does not belong to any group",sep=" "))
-    cog_df <- add_row(cog_df,GenBankID=i,OG="None")}
+    CogDf <- add_row(CogDf,GenBankID=i,OG="None")}
     else{
       for(result in query$COGID) {
         print(paste("Protein with GenBank ID",i,"belongs to the group",result,sep = " "))
-        cog_df <- add_row(cog_df,GenBankID=i,OG=result)
+        CogDf <- add_row(CogDf,GenBankID=i,OG=result)
       }
       }
   }
   #get rid of first row 
-  return(cog_df)
+  return(CogDf)
 }
   

@@ -7,22 +7,23 @@
 #' @export
 #' @examples
 #' \dontrun {
-#' get_orthology([Group X])
+#' CogLinker([Group X])
 #' }
-#' The Group X pairs with Group Y with a bit score of 248
+#' The Group X does not associate with any COG
 
-cog_linker <- function(groups,benchmark){
+CogLinker <- function(groups,benchmark){
   linker <- tibble(group1=character(),group2=character(),association_score=numeric())
   for (i in groups) {
-    firstchar <- paste("SELECT * FROM cog_links where group1=",i,sep = "'")
+    firstchar <- paste("SELECT * FROM CogLinks where group1=",i,sep = "'")
     secondchar <-paste(firstchar," and association_score >",sep = "'")
     thirdchar <- paste(secondchar,as.character(benchmark),sep =" ")
-    query <- sqldf(thirdchar,cog_links)
+    query <- sqldf(thirdchar,CogLinks)
+    print(nrow(query))
       for(j in seq_along(query$group2)) {
         row <- query[j,]
         if (length(row$group2) == 0) {
           print(paste("Classifier",i,"does not associate with any COG",sep=" "))
-          linker <- add_row(linker,group1=i,group2=NA,association_score=0)}
+          linker <- add_row(linker,group1=i,group2="None",association_score=0)}
         else{
         indx <- which(groups %in% row$group2)
         if (length(indx) >= 1) {

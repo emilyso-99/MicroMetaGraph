@@ -16,8 +16,8 @@ load_data <- function(directory){
   final_orthos <- load("./orthologues.rda")
   og_categories <- load("./og_categories.rda")
   categories <- load("./categories.rda")
-  cog_links <- load("./cog_links.rda")
+  CogLinks <- load("./CogLinks.rda")
   print("the data has been loaded!")
-  return(final_orthos,og_categories,categories,cog_links)
+  return(final_orthos,og_categories,categories,CogLinks)
 }
   
