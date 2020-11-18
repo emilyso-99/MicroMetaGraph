@@ -18,18 +18,19 @@ CogLinker <- function(groups,benchmark){
     secondchar <-paste(firstchar," and association_score >",sep = "'")
     thirdchar <- paste(secondchar,as.character(benchmark),sep =" ")
     query <- sqldf(thirdchar,CogLinks)
-      for(j in seq_along(query$group2)) {
+    if (nrow(query) == 0) {
+      print(paste("Classifier",i,"does not associate with any COG",sep=" "))
+      linker <- add_row(linker,group1=i,group2="None",association_score=0)
+    }
+    else{
+      for(j in 1:nrow(query)) {
         row <- query[j,]
-        if (length(row$group2) == 0) {
-          print(paste("Classifier",i,"does not associate with any COG",sep=" "))
-          linker <- add_row(linker,group1=i,group2="None",association_score=0)}
-        else{
         indx <- which(groups %in% row$group2)
         if (length(indx) >= 1) {
         print(paste("Classifier",i,"connects with the group",row$group2,sep=" "))
         linker <- add_row(linker,group1=i,group2=row$group2,association_score=row$association_score)}
-        }
       }
+    }
     }
   return(linker)
 }

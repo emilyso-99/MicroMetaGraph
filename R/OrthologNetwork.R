@@ -33,11 +33,11 @@ OrthologNetwork <- function(proteins,benchmark=0){
     for(j in 1:nrow(CogLinks)) {
       row <- CogLinks[j,]
       if (!is.na(row$group1)) {
-        firstgroupindex <- which(vertex_attr(OgGraph,"ortholog") %in% row$group1)
-        secondgroupindex <- which(vertex_attr(OgGraph,"ortholog") %in% row$group2)
-        for (item in firstgroupindex) {
-          for (next_item in secondgroupindex) {
-            OgGraph <- add_edges(OgGraph, c(item,next_item))
+        FirstGroupIndex <- which(vertex_attr(OgGraph,"ortholog") %in% row$group1)
+        SecondGroupIndex <- which(vertex_attr(OgGraph,"ortholog") %in% row$group2)
+        for (item in FirstGroupIndex) {
+          for (NextItem in SecondGroupIndex) {
+            OgGraph <- add_edges(OgGraph, c(item,NextItem))
             OgGraph <- set_edge_attr(OgGraph,"link", value=row$association_score)
           }
         }

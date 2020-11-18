@@ -33,10 +33,10 @@ for(j in 1:nrow(CogLinks)) {
   row <- CogLinks[j,]
   if (!is.na(row$group1)) {
   firstgroup_index <- which(vertex_attr(ProteinGraph,"ortholog") %in% row$group1)
-  secondgroupindex <- which(vertex_attr(ProteinGraph,"ortholog") %in% row$group2)
+  SecondGroupIndex <- which(vertex_attr(ProteinGraph,"ortholog") %in% row$group2)
   for (item in firstgroup_index) {
-    for (next_item in secondgroupindex) {
-      ProteinGraph <- add_edges(ProteinGraph, c(item,next_item))
+    for (NextItem in SecondGroupIndex) {
+      ProteinGraph <- add_edges(ProteinGraph, c(item,NextItem))
       ProteinGraph <- set_edge_attr(ProteinGraph,"link", value=row$association_score)
     }
   }
