@@ -1,15 +1,15 @@
 #' The Annotation Function 
 #' 
-#' This function, when fed a character vector of ortholog groups, will return the bit scores of the COG group associations 
+#' This function, when fed a character vector of ortholog groups, will return the bit scores of the other COG groups in the datasets that it interacts with
 #' @param groups A character vector that contains a list of OGs, benchmark for association score
 #' @return dataframe containing each pair of OGs with its bitscore  
 #' @keywords functional annotation 
 #' @export
 #' @examples
 #' \dontrun {
-#' CogLinker([Group X])
+#' CogLinker(c("COG0001","COG0002"),100)
 #' }
-#' The Group X does not associate with any COG
+#'"Classifier COG0002 connects with the group COG0001"
 
 CogLinker <- function(groups,benchmark){
   linker <- tibble(group1=character(),group2=character(),association_score=numeric())
@@ -18,7 +18,6 @@ CogLinker <- function(groups,benchmark){
     secondchar <-paste(firstchar," and association_score >",sep = "'")
     thirdchar <- paste(secondchar,as.character(benchmark),sep =" ")
     query <- sqldf(thirdchar,CogLinks)
-    print(nrow(query))
       for(j in seq_along(query$group2)) {
         row <- query[j,]
         if (length(row$group2) == 0) {

@@ -13,13 +13,13 @@ CogLinker(groups, benchmark)
 dataframe containing each pair of OGs with its bitscore
 }
 \description{
-This function, when fed a character vector of ortholog groups, will return the bit scores of the COG group associations
+This function, when fed a character vector of ortholog groups, will return the bit scores of the other COG groups in the datasets that it interacts with
 }
 \examples{
 \dontrun {
-CogLinker([Group X])
+CogLinker(c("COG0001","COG0002"),100)
 }
-The Group X does not associate with any COG
+"Classifier COG0002 connects with the group COG0001"
 }
 \keyword{annotation}
 \keyword{functional}

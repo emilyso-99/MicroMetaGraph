@@ -4,7 +4,7 @@
 \alias{OrthologNetwork}
 \title{The OG Network Function}
 \usage{
-OrthologNetwork(proteins, benchmark)
+OrthologNetwork(proteins, benchmark = 0)
 }
 \arguments{
 \item{classifiers}{A list that contains a sequence of NCBI/Genbank protein ids}
@@ -18,9 +18,14 @@ that is orthog specific. Each node is a COG group, with information on the funct
 are lines connecting interaction scores
 }
 \examples{
-\dontrun {
-ProteinNetwork([Protein X])
-}
+OrthologNetwork(c("M164_1961","RGE_RS00290"),100)
+"The group COG0001 has the functional assignment H which is associated with the functional description: Coenzyme transport and metabolism"
+"The group COG0002 has the functional assignment E which is associated with the functional description: Amino acid transport and metabolism"
+"Classifier COG0001 connects with the group COG0002"
+"Classifier COG0002 connects with the group COG0001"
+IGRAPH 03b9c9c D--- 2 2 -- 
+attr: ortholog (v/c), description (v/c), link (e/n)
+edges from 03b9c9c:
 
 }
 \keyword{interaction}

@@ -4,7 +4,7 @@
 \alias{ProteinNetwork}
 \title{The Protein Network Function}
 \usage{
-ProteinNetwork(proteins, benchmark)
+ProteinNetwork(proteins, benchmark = 0)
 }
 \arguments{
 \item{classifiers}{A list that contains a sequence of NCBI/Genbank protein ids}
@@ -18,10 +18,13 @@ that is protein-specific-each node is a protein, with information on the functio
 are lines connecting interactoin scores
 }
 \examples{
-\dontrun {
-ProteinNetwork([Protein X])
-}
-
+ProteinNetwork(c("M164_1961","RGE_RS00290"),100)
+"Classifier COG0001 connects with the group COG0002"
+"Classifier COG0002 connects with the group COG0001"
+IGRAPH 85c90cf D--- 2 2 -- 
+attr: protein (v/c), ortholog (v/c), description (v/c), link (e/n)
+edges from 85c90cf:
+1->2 2->1
 }
 \keyword{interaction}
 \keyword{network}

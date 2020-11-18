@@ -8,16 +8,19 @@
 #' @keywords interaction network 
 #' @export
 #' @examples
-#' \dontrun {
-#' ProteinNetwork([Protein X])
-#' }
+#' OrthologNetwork(c("M164_1961","RGE_RS00290"),100)
+#' "The group COG0001 has the functional assignment H which is associated with the functional description: Coenzyme transport and metabolism"
+#' "The group COG0002 has the functional assignment E which is associated with the functional description: Amino acid transport and metabolism"
+#' "Classifier COG0001 connects with the group COG0002"
+#' "Classifier COG0002 connects with the group COG0001"
+#' IGRAPH 03b9c9c D--- 2 2 -- 
+#' attr: ortholog (v/c), description (v/c), link (e/n)
+#' edges from 03b9c9c:
 #'
 
-OrthologNetwork <- function(proteins,benchmark){
+OrthologNetwork <- function(proteins,benchmark=0){
   orthologs <- GetOrthology(proteins)
   orthos <- unique(orthologs$OG)
-  print("orthos")
-  print(orthos)
   OgGraph = make_empty_graph(n=length(orthos))
   annotations <- FunctionalAnnotation(orthos)
   CogLinks <- CogLinker(orthos,benchmark)
@@ -34,7 +37,6 @@ OrthologNetwork <- function(proteins,benchmark){
         secondgroupindex <- which(vertex_attr(OgGraph,"ortholog") %in% row$group2)
         for (item in firstgroupindex) {
           for (next_item in secondgroupindex) {
-            print(c(item,next_item))
             OgGraph <- add_edges(OgGraph, c(item,next_item))
             OgGraph <- set_edge_attr(OgGraph,"link", value=row$association_score)
           }

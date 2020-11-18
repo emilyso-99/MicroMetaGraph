@@ -7,10 +7,10 @@
 #' @keywords functional annotation 
 #' @export
 #' @examples
-#' \dontrun {
-#' GetOrthology([Group X])
+#'{
+#' FunctionalAnnotation(c("COG0001"))
 #' }
-#' The Group X has the functional assignment A which is associated with the functional description: DNA Repair
+#' "The group COG0001 has the functional assignment H which is associated with the functional description: Coenzyme transport and metabolism"
 
 FunctionalAnnotation <- function(classifiers){
   OG_category <- tibble(OG=character(),description=character())
