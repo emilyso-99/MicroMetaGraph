@@ -4,15 +4,21 @@ The MicroMetaGraph R package, when given a set of input dataset of protein IDs f
 
 # Installation
 
-To download the pacakge:
+To download the package:
+```r
   require("devtools")
   devtools::install_github("emilyso-99/MicroMetaGraph",build_vignette = TRUE)
   library("MicroMetaGraph")
+ ```
 
 # Overview: 
+``` r
 ls("package:MicroMetaGraph")
 data(package="MicroMetaGraph")
 browseVignettes("MicroMetaGraph")
+```
+
+
 # Contributions
 
 The author of the package is EmilySo. The
