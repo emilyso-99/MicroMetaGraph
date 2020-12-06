@@ -17,8 +17,8 @@ ls("package:MicroMetaGraph")
 data(package="MicroMetaGraph")
 browseVignettes("MicroMetaGraph")
 ```
-
-
+an overview of the package is shown below 
+![](./inst/extdata/graphicaOutput.png)
 # Contributions
 
 The author of the package is EmilySo. The
