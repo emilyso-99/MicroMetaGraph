@@ -18,7 +18,7 @@ data(package="MicroMetaGraph")
 browseVignettes("MicroMetaGraph")
 ```
 an overview of the package is shown below 
-![](./inst/extdata/graphicaOutput.png)
+![](./inst/extdata/graphicalOutput.png)
 # Contributions
 
 The author of the package is EmilySo. The
