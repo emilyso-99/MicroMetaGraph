@@ -7,7 +7,9 @@
 ProteinNetwork(proteins, benchmark = 0)
 }
 \arguments{
-\item{classifiers}{A list that contains a sequence of NCBI/Genbank protein ids}
+\item{proteins}{A list that contains a sequence of NCBI/Genbank protein ids}
+
+\item{benchmark}{Minimum benchmark for associaton score}
 }
 \value{
 graph of interaction network
@@ -21,10 +23,10 @@ are lines connecting interactoin scores
 ProteinNetwork(c("M164_1961","RGE_RS00290"),100)
 "Classifier COG0001 connects with the group COG0002"
 "Classifier COG0002 connects with the group COG0001"
-IGRAPH 85c90cf D--- 2 2 -- 
+"IGRAPH 85c90cf D--- 2 2 -- 
 attr: protein (v/c), ortholog (v/c), description (v/c), link (e/n)
 edges from 85c90cf:
-1->2 2->1
+1->2 2->1"
 }
 \keyword{interaction}
 \keyword{network}

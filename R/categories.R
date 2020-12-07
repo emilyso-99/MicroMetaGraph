@@ -12,7 +12,7 @@
 #'   \item{associationscore}{association score between the two COGs}
 #' }
 #' @keywords datasets
-#'
+
 #'
 #' @source \url{https://stringdb-static.org/cgi/download.pl?sessionId=A8sx4Z24Onr2}
 #'

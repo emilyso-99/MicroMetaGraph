@@ -80,7 +80,7 @@ The output is provided under the code snippet:
 input <-c("CSAL_RS12960","KRAD_RS18185","MPE_RS01260","NH8B_RS05620","RIV7116_RS09085")
 ProteinNetwork(input,benchmark=100)
 ```
-<div style="text-align:center"><img src="graphicalOutput.png" alt="graphicalOutput" width="500"/>
+<div style="text-align:center"><img src="../inst/extdata/graphicalOutput.png" alt="graphicalOutput" width="500"/>
 
 <div style="text-align:left">
 

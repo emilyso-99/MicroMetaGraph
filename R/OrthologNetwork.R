@@ -3,19 +3,32 @@
 #' from beginning to end, using the query functions that were done before, this function constructs a protein interaction network 
 #' that is orthog specific. Each node is a COG group, with information on the functional annotation  and the input proteins present in each ortholog group. there 
 #' are lines connecting interaction scores 
-#' @param classifiers A list that contains a sequence of NCBI/Genbank protein ids
+#' @param proteins A list that contains a sequence of NCBI/Genbank protein ids
+#' @param benchmark Set benchmarks for association scores
 #' @return graph of interaction network 
 #' @keywords interaction network 
+#' @importFrom igraph make_empty_graph
+#' @importFrom igraph vcount
+#' @importFrom igraph set_vertex_attr
+#' @importFrom igraph add_edges
+#' @importFrom igraph set_edge_attr
+#' @importFrom igraph plot.igraph
+#' @importFrom igraph vertex_attr
+#' @importFrom utils data
 #' @export
 #' @examples
 #' OrthologNetwork(c("M164_1961","RGE_RS00290"),100)
-#' "The group COG0001 has the functional assignment H which is associated with the functional description: Coenzyme transport and metabolism"
-#' "The group COG0002 has the functional assignment E which is associated with the functional description: Amino acid transport and metabolism"
+#' "The group COG0001 has the functional assignment 
+#' H which is associated with the functional description:
+#'  Coenzyme transport and metabolism"
+#' "The group COG0002 has the functional assignment 
+#' E which is associated with the functional description:
+#'  Amino acid transport and metabolism"
 #' "Classifier COG0001 connects with the group COG0002"
 #' "Classifier COG0002 connects with the group COG0001"
-#' IGRAPH 03b9c9c D--- 2 2 -- 
+#' "IGRAPH 03b9c9c D--- 2 2 -- 
 #' attr: ortholog (v/c), description (v/c), link (e/n)
-#' edges from 03b9c9c:
+#' edges from 03b9c9c:"
 #'
 
 OrthologNetwork <- function(proteins,benchmark=0){
@@ -24,7 +37,8 @@ OrthologNetwork <- function(proteins,benchmark=0){
   OgGraph = make_empty_graph(n=length(orthos))
   annotations <- FunctionalAnnotation(orthos)
   CogLinks <- CogLinker(orthos,benchmark)
-  for(x in 1:vcount(OgGraph)) {
+  vercount <- vcount(OgGraph)
+  for(x in 1:vercount) {
     OgGraph <- set_vertex_attr(OgGraph,"ortholog", index=x,value = orthos[x])
     OgGraph <- set_vertex_attr(OgGraph,"description",index=x,value= annotations$description[x])
   }

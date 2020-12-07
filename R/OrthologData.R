@@ -17,7 +17,6 @@
 #' }
 #' @keywords datasets
 #'
-#'
 #' @source \url{https://www.ncbi.nlm.nih.gov/research/cog-project/}
 #'
 "OrthologsInfo"

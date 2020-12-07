@@ -3,7 +3,7 @@
 \docType{data}
 \name{AnnotationData}
 \alias{AnnotationData}
-\title{COG Funcational annotation data
+\title{COG Functional annotation data
 For each COG, this dataset provides functional annotation. This includes identifying their functional category, the cluster's name, and the genes/pathways
 they are associated with}
 \format{
@@ -12,7 +12,7 @@ A dataframe with 4877 rows and 7 variables
 \item{COG_ID}{the reference ID for a COG}
 \item{category}{the single letter encoding for the COG's functional category (can include multiple letters)}
 \item{name}{the biological name of the cluster}
-\item{gene_association}}{gene associated with the COG}
+\item{gene_association}{gene associated with the COG}
 \item{pathway_association}{funtional pathway associated with the COG}
 \item{cog_pubmed}{Reference ID for the COG associated with the PubMed database}
 \item{cog_pdb}{Reference ID for the COG associated with the PDB database}
@@ -22,10 +22,10 @@ A dataframe with 4877 rows and 7 variables
 \url{https://www.ncbi.nlm.nih.gov/research/cog-project/}
 }
 \usage{
-data(og_annotation)
+data(AnnotationData)
 }
 \description{
-COG Funcational annotation data
+COG Functional annotation data
 For each COG, this dataset provides functional annotation. This includes identifying their functional category, the cluster's name, and the genes/pathways
 they are associated with
 }

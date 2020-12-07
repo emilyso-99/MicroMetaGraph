@@ -2,16 +2,23 @@
 #' 
 #' This function, when fed a character vector of ortholog groups, will return the bit scores of the other COG groups in the datasets that it interacts with
 #' @param groups A character vector that contains a list of OGs, benchmark for association score
+#' @param benchmark The benchmark for association scores 
 #' @return dataframe containing each pair of OGs with its bitscore  
 #' @keywords functional annotation 
+#' @importFrom tibble add_row
+#' @importFrom tibble tibble
+#' @import sqldf
+#' @importFrom utils data
 #' @export
 #' @examples
-#' \dontrun {
+#' {
 #' CogLinker(c("COG0001","COG0002"),100)
 #' }
-#'"Classifier COG0002 connects with the group COG0001"
+#' "Classifier COG0002 connects with the group COG0001"
 
-CogLinker <- function(groups,benchmark){
+CogLinker <- function(groups,benchmark=0){
+  data("CogLinks")
+
   linker <- tibble(group1=character(),group2=character(),association_score=numeric())
   for (i in groups) {
     firstchar <- paste("SELECT * FROM CogLinks where group1=",i,sep = "'")

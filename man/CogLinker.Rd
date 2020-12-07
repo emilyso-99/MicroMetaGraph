@@ -4,10 +4,12 @@
 \alias{CogLinker}
 \title{The Annotation Function}
 \usage{
-CogLinker(groups, benchmark)
+CogLinker(groups, benchmark = 0)
 }
 \arguments{
 \item{groups}{A character vector that contains a list of OGs, benchmark for association score}
+
+\item{benchmark}{The benchmark for association scores}
 }
 \value{
 dataframe containing each pair of OGs with its bitscore
@@ -16,7 +18,7 @@ dataframe containing each pair of OGs with its bitscore
 This function, when fed a character vector of ortholog groups, will return the bit scores of the other COG groups in the datasets that it interacts with
 }
 \examples{
-\dontrun {
+{
 CogLinker(c("COG0001","COG0002"),100)
 }
 "Classifier COG0002 connects with the group COG0001"
