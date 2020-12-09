@@ -17,7 +17,6 @@
 #' "Classifier COG0002 connects with the group COG0001"
 
 CogLinker <- function(groups,benchmark=0){
-  data("CogLinks")
 
   linker <- tibble(group1=character(),group2=character(),association_score=numeric())
   for (i in groups) {
