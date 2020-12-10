@@ -17,8 +17,13 @@ ls("package:MicroMetaGraph")
 data(package="MicroMetaGraph")
 browseVignettes("MicroMetaGraph")
 ```
-an overview of the package is shown below 
-![](./inst/extdata/graphicalOutput.png)
+To run the Shiny App:
+``` r
+runMicroMetaGraph()
+```
+
+An overview of the package is listed below:
+![](./inst/extdata/overview.png)
 # Contributions
 
 The author of the package is EmilySo. The
