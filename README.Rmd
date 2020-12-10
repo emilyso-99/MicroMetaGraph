@@ -17,7 +17,13 @@ ls("package:MicroMetaGraph")
 data(package="MicroMetaGraph")
 browseVignettes("MicroMetaGraph")
 ```
+To run the Shiny App:
+``` r
+runMicroMetaGraph()
+```
 
+An overview of the package is listed below:
+![](./inst/extdata/overview.png)
 
 # Contributions
 
