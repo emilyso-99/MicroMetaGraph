@@ -19,10 +19,10 @@ their ortholog groups and that orthologs members (derived from EGGNOG Database)
 }
 \examples{
 {
-GetOrthology(c("MK0280","MA_0581","PTH_0979"))
+GetOrthology(c("644223.PAS_chr1-1_0187","5270.UM01492.1","51453.JGI55417"))
 }
-"Protein with GenBankID MK0280 belongs to COG0001"
-"Protein with GenBankID MA_0581 belongs to COG0001"
-"Protein with GenBankID PTH_0979 belongs to COG0001"
+"Protein with ID 644223.PAS_chr1-1_0187 belongs to the group COG5271"
+"Protein with ID 5270.UM01492.1 belongs to the group COG0515"
+"Protein with ID 51453.JGI55417 belongs to the group COG5245"
 }
 \keyword{orthology}

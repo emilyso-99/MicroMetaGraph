@@ -16,21 +16,12 @@
 #' @importFrom igraph vertex_attr
 #' @importFrom utils data
 #' @export
-#' @examples
-#' ProteinNetwork(c("M164_1961","RGE_RS00290"),100)
-#'"Classifier COG0001 connects with the group COG0002"
-#'"Classifier COG0002 connects with the group COG0001"
-#'"IGRAPH 85c90cf D--- 2 2 -- 
-#'attr: protein (v/c), ortholog (v/c), description (v/c), link (e/n)
-#'edges from 85c90cf:
-#'1->2 2->1"
-
 ProteinNetwork <- function(proteins,benchmark=0){
 # get orthology data 
 ProteinGraph = igraph::make_empty_graph(n=length(proteins))
 orthologs <- GetOrthology(proteins)
-annotations <- FunctionalAnnotation(orthologs$OG)
-CogLinks <- CogLinker(orthologs$OG,benchmark)
+annotations <- FunctionalAnnotation(orthologs$COGID)
+CogLinks <- CogLinker(orthologs$COGID,benchmark)
 vercount <- igraph::vcount(ProteinGraph)
 for(x in 1:vercount) {
 ProteinGraph <- igraph::set_vertex_attr(ProteinGraph,"protein",index=x,value=proteins[x])

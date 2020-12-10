@@ -23,7 +23,7 @@ ui <- fluidPage(
       # Input: Slider for the number of observations to generate ----
       textInput("text",
                   h3("Text Input"),
-                 value = "CSAL_RS12960,KRAD_RS18185,MPE_RS01260,NH8B_RS05620,RIV7116_RS09085")
+                 value = "339670.Bamb_6476,7739.JGI124825,203124.Tery_0122")
       
     ),
     
@@ -56,7 +56,6 @@ server <- function(input, output) {
     }
     else {
       ProteinNetwork(x)
-      
     }
   })
   orthologs <- reactive({
@@ -67,14 +66,14 @@ server <- function(input, output) {
   links <- reactive({
     print("Please allow the shiny app a minute to generate output")
     x <- unlist(strsplit(input$text,","))
-    OGs <- invisible(capture.output(GetOrthology(x)))
-    CogLinker(OGs$OG)
+    OGs <- GetOrthology(x)
+    CogLinker(OGs$COGID)
   })
   annotations <- reactive({
     print("Please allow the shiny app a minute to generate output")
     x <- unlist(strsplit(input$text,","))
-    OGs <- invisible(capture.output(GetOrthology(x)))
-    FunctionalAnnotation(OGs$OG)
+    OGs <- GetOrthology(x)
+    FunctionalAnnotation(OGs$COGID)
   })
   # Generate a plot of the data ----
   # Also uses the inputs to build the plot label. Note that the

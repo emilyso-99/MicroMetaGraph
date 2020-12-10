@@ -59,7 +59,7 @@ The components of the package are as follows:
 *GetOrthology*, when given an input vector of protein IDs from the GenBank database, uses datasets from the COG database to correctly map the proteins to their respective orthologous groups
 
 ``` r
-orthologyResults <- GetOrthology(c("MPE_RS01260","NH8B_RS05620"))
+orthologyResults <- GetOrthology(c("339670.Bamb_6476","7739.JGI124825","203124.Tery_0122"))
 ```
 *FunctionalAnnotation*, when given an input set of orthologs, uses data from the COG database to get further information about the ortholog's functional classification
 
@@ -73,14 +73,14 @@ annotationResults <- FunctionalAnnotation(orthologyResults)
 ``` r
 LinkerResults <- CogLinker(orthologyResults)
 ```
-*ProteinNetwork* and *OrthologNetwork* are two functions that actually construct the plot of the interaction network. When given an input vector of protein IDs from the GenBank database and a chosen benchmark (for interaction scores), these two functions use the functions mentioned above to retreive the pertinent information for the network. The differences between the two is that the nodes in *ProteinNetwork* correspond to one protein while in *OrthologNetwork* they correspond to one orthlog group. Therefore, if you have several protein GenBank IDs as your input but they all belong to the same orthologous group, *OrthologNetwork* will only produce a graph with one node.
+*ProteinNetwork* and *OrthologNetwork* are two functions that actually construct the plot of the interaction network. When given an input vector of protein IDs from the Eggnog database and a chosen benchmark (for interaction scores), these two functions use the functions mentioned above to retreive the pertinent information for the network. The differences between the two is that the nodes in *ProteinNetwork* correspond to one protein while in *OrthologNetwork* they correspond to one orthlog group. Therefore, if you have several protein Eggnog IDs as your input but they all belong to the same orthologous group, *OrthologNetwork* will only produce a graph with one node.
 
 The output is provided under the code snippet:
 ``` r
-input <-c("CSAL_RS12960","KRAD_RS18185","MPE_RS01260","NH8B_RS05620","RIV7116_RS09085")
-ProteinNetwork(input,benchmark=100)
+input <-c("339670.Bamb_6476","7739.JGI124825","203124.Tery_0122")
+ProteinNetwork(input,benchmark=0)
 ```
-<div style="text-align:center"><img src="../inst/extdata/graphicalOutput.png" alt="graphicalOutput" width="500"/>
+<div style="text-align:center"><img src="../inst/extdata/newgraphicalOutput.png" alt="newgraphicalOutput" width="500"/>
 
 <div style="text-align:left">
 
@@ -97,11 +97,9 @@ R Core Team (2020). R: A language and environment for statistical computing. R F
 
 Wickham, H. and Bryan, J. (2019). *R Packages* (2nd edition). Newton, Massachusetts: O'Reilly Media. https://r-pkgs.org/
 
-Tatusov RL, Galperin MY, Natale DA, Koonin EV. The COG database: a tool for genome-scale analysis of protein functions and evolution. Nucleic Acids Res. 2000;28(1):33-36. doi:10.1093/nar/28.1.33
+Tatusov RL, Galperin MY, Natale DA, Koonin EV. The COG database: a tool for genome-scale analysis of protein functions and evolution. *Nucleic Acids Res. 2000*;28(1):33-36. doi:10.1093/nar/28.1.33
 
-Clark K, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers EW. GenBank. Nucleic Acids Res. 2016;44(D1):D67-D72. doi:10.1093/nar/gkv1276
-
-Szklarczyk D, Gable AL, Lyon D, et al. STRING v11: protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets. Nucleic Acids Res. 2019;47(D1):D607-D613. doi:10.1093/nar/gky1131
+Szklarczyk D, Gable AL, Lyon D, et al. STRING v11: protein-protein association networks with increased coverage, supporting functional discovery in genome-wide experimental datasets. *Nucleic Acids Res.* 2019;47(D1):D607-D613. doi:10.1093/nar/gky1131
 
 ----
 

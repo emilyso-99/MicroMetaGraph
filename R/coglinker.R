@@ -20,7 +20,7 @@ CogLinker <- function(groups,benchmark=0){
 
   linker <- tibble(group1=character(),group2=character(),association_score=numeric())
   for (i in groups) {
-    firstchar <- paste("SELECT * FROM CogLinks where group1=",i,sep = "'")
+    firstchar <- paste("SELECT * FROM cut_links where group1=",i,sep = "'")
     secondchar <-paste(firstchar," and association_score >",sep = "'")
     thirdchar <- paste(secondchar,as.character(benchmark),sep =" ")
     query <- sqldf(thirdchar,CogLinks)

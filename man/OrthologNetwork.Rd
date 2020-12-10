@@ -19,20 +19,5 @@ from beginning to end, using the query functions that were done before, this fun
 that is orthog specific. Each node is a COG group, with information on the functional annotation  and the input proteins present in each ortholog group. there
 are lines connecting interaction scores
 }
-\examples{
-OrthologNetwork(c("M164_1961","RGE_RS00290"),100)
-"The group COG0001 has the functional assignment 
-H which is associated with the functional description:
- Coenzyme transport and metabolism"
-"The group COG0002 has the functional assignment 
-E which is associated with the functional description:
- Amino acid transport and metabolism"
-"Classifier COG0001 connects with the group COG0002"
-"Classifier COG0002 connects with the group COG0001"
-"IGRAPH 03b9c9c D--- 2 2 -- 
-attr: ortholog (v/c), description (v/c), link (e/n)
-edges from 03b9c9c:"
-
-}
 \keyword{interaction}
 \keyword{network}

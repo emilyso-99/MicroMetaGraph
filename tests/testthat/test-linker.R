@@ -25,7 +25,7 @@ test_that("annotation with one valid ortholog group, and one invalid", {
 test_that("two invalid orthologs", {
   
   input_orthologs <- c("COG0001", "COG0006")
-  expected <- 2
+  expected <- 0
   expect_equal(nrow(CogLinker(input_orthologs,100)),expected)
 })
 
